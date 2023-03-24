@@ -11,12 +11,12 @@
 ### Motivation
 Deployment at scale, i.e. identical or almost identical deployments across many locations, would benefit from the ability to load service files from a central location. This would allow the maintainer to make changes once to a shared file and have them apply to all or a subset of deployments. The following are some EdgeX service files that would benefit for this capability:
 
-- [Unit of Measure](https://github.com/edgexfoundry/edgex-go/blob/v2.3.0/cmd/core-metadata/res/uom.toml) file used by Core Metadata
+- [Unit of Measure](https://github.com/edgexfoundry/edgex-go/blob/v2.3.0/cmd/core-metadata/res/uom.yaml) file used by Core Metadata
 
-    - Location of this file is specified in configuration [here](https://github.com/edgexfoundry/edgex-go/blob/v2.3.0/cmd/core-metadata/res/configuration.toml#L50) 
+    - Location of this file is specified in configuration [here](https://github.com/edgexfoundry/edgex-go/blob/v2.3.0/cmd/core-metadata/res/configuration.yaml#L50) 
 
 - Service Configuration files
-    - Location of these files are currently defaulted to be `./res/configuration.toml`, but can be overridden  via -cf/--configFile command line flag.
+    - Location of these files are currently defaulted to be `./res/configuration.yaml`, but can be overridden  via -cf/--configFile command line flag.
     - The Common Configuration ADR adds a new [common configuration file](https://docs.edgexfoundry.org/3.0/design/adr/0026-Common%20Configuration/#specifying-the-common-configuration-location) specified via the future -cc/--commonConfig command line flag.
 
 - [Token Configuration](https://github.com/edgexfoundry/edgex-go/blob/v2.3.0/cmd/security-file-token-provider/res/token-config.json) file for Security File Token Provider 
@@ -27,7 +27,7 @@ Deployment at scale, i.e. identical or almost identical deployments across many 
 
     - These files can reside in a device services local file system and are pushed to Core Metadata the first time the service starts. Example [here](https://github.com/edgexfoundry/device-onvif-camera/tree/v2.3.0/cmd/res)
 
-    - These files are found by scanning the folders specified in configuration [here](https://github.com/edgexfoundry/device-sdk-go/blob/v2.3.0/example/cmd/device-simple/res/configuration.toml)
+    - These files are found by scanning the folders specified in configuration [here](https://github.com/edgexfoundry/device-sdk-go/blob/v2.3.0/example/cmd/device-simple/res/configuration.yaml)
 
     !!! note 
         These files are only pushed to Core Metadata the first time the device service is loaded. They are not currently re-pushed once they exist in Core Metadata even when the files have changed locally. Thus updating the files locally or in a shared location will not result in changing the contents of these files in Core Metadata. They still benefit from this capability during initial deployment and when new files are added.  

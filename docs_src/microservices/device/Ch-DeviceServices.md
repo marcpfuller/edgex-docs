@@ -184,7 +184,7 @@ Please refer to the general [Common Configuration documentation](../configuratio
 Device services can have custom configuration in one of two ways. See the table below for details.
 
 === "Driver"
-    `[Driver]` - The Driver section used for simple custom settings and is accessed via the SDK's DriverConfigs() API. The DriverConfigs API returns a `map[string] string` containing the contents on the `Driver` section of the `configuration.toml` file.
+    `[Driver]` - The Driver section used for simple custom settings and is accessed via the SDK's DriverConfigs() API. The DriverConfigs API returns a `map[string] string` containing the contents on the `Driver` section of the `configuration.yaml` file.
     
     ```toml
     [Driver]
@@ -215,7 +215,7 @@ When running an Device Service in secure mode, secrets can be stored in the Secr
 
 ##### Insecure Mode
 
-When running in insecure mode, the secrets are stored and retrieved from the *Writable.InsecureSecrets* section of the service's configuration.toml file. Insecure secrets and their paths can be configured as below.
+When running in insecure mode, the secrets are stored and retrieved from the *Writable.InsecureSecrets* section of the service's configuration.yaml file. Insecure secrets and their paths can be configured as below.
 
 !!! example "Example - InsecureSecrets Configuration"
     ```toml

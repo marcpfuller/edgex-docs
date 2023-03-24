@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Triggers determine how the App Functions Pipeline begins execution. The trigger is determined by the `[Trigger]` configuration section in the  `configuration.toml` file.   
+Triggers determine how the App Functions Pipeline begins execution. The trigger is determined by the `[Trigger]` configuration section in the  `configuration.yaml` file.   
 
 !!! edgey "Edgex 2.0"
     For Edgex 2.0 the `[Binding]` configuration section has been renamed to `[Trigger]`. The  `[MessageBus]` section has been renamed to `EdgexMessageBus` and moved under the `[Trigger]` section. The `[MqttBroker]` section has been renamed to `ExternalMqtt` and moved under the `[Trigger]` section.

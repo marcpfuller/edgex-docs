@@ -196,9 +196,9 @@ write value using the modbus protocol.
 Run the following command to create your device configuration:
 ```
 cd custom-config
-nano device.config.toml
+nano device.config.yaml
 ```
-Fill in the device.config.toml file, as shown below:
+Fill in the device.config.yaml file, as shown below:
 ```toml
 [[DeviceList]]
     Name = "Modbus-TCP-Temperature-Sensor"

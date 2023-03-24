@@ -21,7 +21,7 @@ of a customized device configuration to work with the existing device service:
 ```
 - custom-config
   |- devices
-     |- my.custom.device.config.toml
+     |- my.custom.device.config.yaml
   |- profiles
      |- my.custom.device.profile.yml
 ```
@@ -31,7 +31,7 @@ of a customized device configuration to work with the existing device service:
 Use this configuration file to define devices and schedule jobs.
 device-mqtt generates a relative instance on start-up.
 
-Create the device configuration file, named `my.custom.device.config.toml`, as shown below:
+Create the device configuration file, named `my.custom.device.config.yaml`, as shown below:
 
 ```toml
 # Pre-define Devices
@@ -177,7 +177,7 @@ topics, make the following changes in the device service configuration files:
             ...
         ```
 
-    2. Otherwise if the device service is built locally, modify these lines in `configuration.toml`:
+    2. Otherwise if the device service is built locally, modify these lines in `configuration.yaml`:
 
         ``` toml
         # Comment out/remove when using multi-level topics
@@ -195,7 +195,7 @@ topics, make the following changes in the device service configuration files:
             If you have previously run Device MQTT locally, you will need to remove the services configuration from Consul. This can be done with: `curl --request DELETE http://localhost:8500/v1/kv/edgex/devices/2.0/device-mqtt?recurse=true`
               
 
-2. In  `my.custom.device.config.toml`:
+2. In  `my.custom.device.config.yaml`:
 
     ``` toml
     [DeviceList.Protocols]

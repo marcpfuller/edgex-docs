@@ -25,10 +25,10 @@ Use of the services provided by Consul is optional on a service-by-service basis
 Use of the registry is controlled by the `-r` or `--registry` flag provided to an EdgeX service.
 Use of mutable configuration data is controlled by the `-cp` or `--configProvider` flag provided to an EdgeX service.
 When Consul is enabled as a configuration provider,
-the `configuration.toml` is parsed into individual settings
+the `configuration.yaml` is parsed into individual settings
 and seeded into the Consul key-value store on the first start of a service.
 Configuration reads and writes are then done to Consul if it is specified as the configuration provider,
-otherwise the static `configuration.toml` is used.
+otherwise the static `configuration.yaml` is used.
 Writes to the `[Writable]` section in Consul trigger per-service callbacks
 notifying the application of the changed data.
 Updates to non-`[Writable]` sections are parsed only once at startup

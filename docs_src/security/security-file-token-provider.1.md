@@ -31,7 +31,7 @@ services from reading each other's tokens.
 >
 > -cd, \--configDir \<configDir\>
 >
-> :   Look in this directory for configuration.toml instead.
+> :   Look in this directory for configuration.yaml instead.
 >
 > -p, \--profile \<name\>
 >
@@ -42,7 +42,7 @@ services from reading each other's tokens.
 
 # FILES
 
-## configuration.toml
+## configuration.yaml
 
 This file specifies the TCP/IP location of the Vault service and
 parameters used for Vault token generation.

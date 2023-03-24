@@ -279,7 +279,7 @@ To stop all EdgeX services (containers), execute the `make down` command:
 ## Optional
 ### Configuration Options
 ### Configurable RTSP server hostname and port
-The hostname and port of the RTSP server can be configured in the `[Driver]` section of the `/cmd/res/configuration.toml` file. The default vaules can be used for this guide.
+The hostname and port of the RTSP server can be configured in the `[Driver]` section of the `/cmd/res/configuration.yaml` file. The default vaules can be used for this guide.
 
 For example:
 ```yaml
@@ -288,7 +288,7 @@ For example:
   RtspTcpPort = "8554"
 ```
 <p align="left">
-      <i>Sample: Snippet from configuration.toml</i>
+      <i>Sample: Snippet from configuration.yaml</i>
 </p>
 
 ## Troubleshooting

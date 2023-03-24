@@ -57,13 +57,13 @@ This section documents the existing behavior in the Hanoi (1.3.x) version of Edg
 Device Virtual's behavior was first tested using the edgexfoundry snap (which is configured to always use the registry) by doing the following:
 
 $ sudo snap install edgexfoundry
-$ cp /var/snap/edgexfoundry/current/config/device-virtual/res/configuration.toml .
+$ cp /var/snap/edgexfoundry/current/config/device-virtual/res/configuration.yaml .
 
 I edited the file, removing the ```[Client.Data]``` section completely and copied the
 file back into place. Next I enabled device-virtual while monitoring the journal output.
 
 ```
-$ sudo cp configuration.toml /var/snap/edgexfoundry/current/config/device-virtual/res/
+$ sudo cp configuration.yaml /var/snap/edgexfoundry/current/config/device-virtual/res/
 $ sudo snap set edgexfoundry device-virtual=on
 ```
 
@@ -131,8 +131,8 @@ In summary, other than the SMA's configuration and metrics logic, the Core and S
 
 ### Security Proxy Setup
 The security-proxy-setup service also relies on static service address configuration to configure the server routes for each
-of the services accessible through the API Gateway (aka Kong). Although it uses the same TOML-based client config keys as the
-other services, these configuration values are only ever read from the security-proxy-setup's local configuration.toml file,
+of the services accessible through the API Gateway (aka Kong). Although it uses the same.yaml-based client config keys as the
+other services, these configuration values are only ever read from the security-proxy-setup's local configuration.yaml file,
 as the security services have never supported using our configuration provider (aka Consul).
 
 **Note** - Another point worth mentioning with respect to security services is that in the Geneva and Hanoi releases the service health checks
@@ -149,7 +149,7 @@ of EdgeX as well as versions through the Fuji release all relied on a bootstrapp
 responsible for seeding the configuration of all of the core and support services into Consul prior to any of the services being
 started.
 
-This release actually preceded usage of TOML for configuration files, and instead just used a flat key/value format,
+This release actually preceded usage of.yaml for configuration files, and instead just used a flat key/value format,
 with keys converted from legacy Java property names (e.g. meta.db.device.url ) to Camel[Pascal]/Case (e.g. MetaDeviceServiceURL).
 
 I chose the config key mentioned above on purpose:

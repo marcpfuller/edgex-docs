@@ -661,11 +661,11 @@ Moreover, it is tedious to override many configurations one by one, compared to 
 
 Since we want to create an OS image pre-loaded with the configured system, we need to make sure the configurations are there without any manual user interaction. We do that by creating a snap which provides the configuration files/directories to the Device Virtual snap:
 
-- configuration.toml
+- configuration.yaml
 - devices/
 - profiles/
 
-For this exercise, we will modify the default configurations and remove most default devices and resources. We will also replace the startup message set in the `configuration.toml` file.
+For this exercise, we will modify the default configurations and remove most default devices and resources. We will also replace the startup message set in the `configuration.yaml` file.
 
 This snap should be build and uploaded to the store. We use `edgex-config-provider-example` as the snap name. Refer to [docs](../../getting-started/Ch-GettingStartedSnapUsers/#config-provider-snap) for more details and example source code.
 

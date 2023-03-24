@@ -35,7 +35,7 @@ This new `SystemEvent` DTO will contain the following data describing the System
 
 #### MessageBus 
 
-Services that publish System Events (Core Metadata) must connect to the EdgeX MessageBus and have MessageBus configuration similar to that of Core Data's [here](https://github.com/edgexfoundry/edgex-go/blob/v2.2.0/cmd/core-data/res/configuration.toml#L53-L74). This design assumes that Core Metadata will have this capability and configuration due to planned implementation of Service Metrics. 
+Services that publish System Events (Core Metadata) must connect to the EdgeX MessageBus and have MessageBus configuration similar to that of Core Data's [here](https://github.com/edgexfoundry/edgex-go/blob/v2.2.0/cmd/core-data/res/configuration.yaml#L53-L74). This design assumes that Core Metadata will have this capability and configuration due to planned implementation of Service Metrics. 
 
 The `PublishTopicPrefix` property in Core Metadata's `MessageQueue` configuration will be used for System Events and set to `edgex/system-event`.
 

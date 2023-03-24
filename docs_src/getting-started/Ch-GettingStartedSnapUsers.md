@@ -70,7 +70,7 @@ EdgeX snaps are packaged with default service configuration files. In certain ca
 There are a few ways to configure snapped services. In simple cases, it should be sufficient to modify the default config files before starting the services for the first time and use config overrides to change supported settings afterwards. Please refer below to learn about the different configuration methods.
 
 #### Config files
-The default configuration files are typically placed at `/var/snap/<snap>/current/config`. Upon a successful startup of an EdgeX service, the server configuration file (typically named `configuration.toml`) is uploaded to the [Registry](../../microservices/configuration/ConfigurationAndRegistry/#registry-provider) by default. After that, the local server configuration file will no longer be read and any modifications will not be applied. At this point, the configurations can be only changed via the Registry or by setting environment variables. Refer to [config registry](#config-registry) or [config overrides](#config-overrides) for details.
+The default configuration files are typically placed at `/var/snap/<snap>/current/config`. Upon a successful startup of an EdgeX service, the server configuration file (typically named `configuration.yaml`) is uploaded to the [Registry](../../microservices/configuration/ConfigurationAndRegistry/#registry-provider) by default. After that, the local server configuration file will no longer be read and any modifications will not be applied. At this point, the configurations can be only changed via the Registry or by setting environment variables. Refer to [config registry](#config-registry) or [config overrides](#config-overrides) for details.
 
 For device services, the Device and Device Profile files are submitted to [Core Metadata](../../microservices/core/metadata/Ch-Metadata) upon initial startup. Refer to the documentation of [Device Services](../../microservices/device/Ch-DeviceServices/) for details.
 
@@ -128,7 +128,7 @@ where:
 
 Mapping examples:
 
-| Snap config key        | Environment Variable     | Service configuration TOML                          |
+| Snap config key        | Environment Variable     | Service configuration.yaml                          |
 |------------------------|--------------------------|-----------------------------------------------------|
 | service-port           | SERVICE_PORT             | [Service]<br>Port                                   |
 | clients-core-data-host  | CLIENTS_CORE_DATA_HOST  | [Clients]<br>--[Clients.core-data]<br>--Host        |
@@ -583,19 +583,19 @@ The default configuration files are installed at:
 /var/snap/edgex-app-service-configurable/current/config/
 └── res
     ├── external-mqtt-trigger
-    │   └── configuration.toml
+    │   └── configuration.yaml
     ├── functional-tests
-    │   └── configuration.toml
+    │   └── configuration.yaml
     ├── http-export
-    │   └── configuration.toml
+    │   └── configuration.yaml
     ├── metrics-influxdb
-    │   └── configuration.toml
+    │   └── configuration.yaml
     ├── mqtt-export
-    │   └── configuration.toml
+    │   └── configuration.yaml
     ├── push-to-core
-    │   └── configuration.toml
+    │   └── configuration.yaml
     └── rules-engine
-        └── configuration.toml
+        └── configuration.yaml
 ```
 
 ??? example "Filtering devices using snap options"
@@ -629,7 +629,7 @@ The default configuration files are installed at:
 /var/snap/edgex-app-rfid-llrp-inventory/current/config/
 └── app-rfid-llrp-inventory
     └── res
-        └── configuration.toml
+        └── configuration.yaml
 ```
 
 **Aliases**
@@ -638,7 +638,7 @@ The aliases need to be provided for the service to work.  See [Setting the Alias
 
 For the snap, this can either be by:
 
-- using a [config-provider-snap] to provide a `configuration.toml` file with the correct aliases, before startup
+- using a [config-provider-snap] to provide a `configuration.yaml` file with the correct aliases, before startup
 - setting the values manually in Consul during or after deployment
 
 ### Device GPIO
@@ -651,9 +651,9 @@ The default configuration files are installed at:
 /var/snap/edgex-device-gpio/current/config
 └── device-gpio
     └── res
-        ├── configuration.toml
+        ├── configuration.yaml
         ├── devices
-        │   └── device.custom.gpio.toml
+        │   └── device.custom.gpio.yaml
         └── profiles
             └── device.custom.gpio.yaml
 ```
@@ -724,9 +724,9 @@ The default configuration files are installed at:
 /var/snap/edgex-device-modbus/current/config/
 └── device-modbus
     └── res
-        ├── configuration.toml
+        ├── configuration.yaml
         ├── devices
-        │   └── modbus.test.devices.toml
+        │   └── modbus.test.devices.yaml
         └── profiles
             └── modbus.test.device.profile.yml
 ```
@@ -742,9 +742,9 @@ The default configuration files are installed at:
 /var/snap/edgex-device-mqtt/current/config/
 └── device-mqtt
     └── res
-        ├── configuration.toml
+        ├── configuration.yaml
         ├── devices
-        │   └── mqtt.test.device.toml
+        │   └── mqtt.test.device.yaml
         └── profiles
             └── mqtt.test.device.profile.yml
 ```
@@ -759,9 +759,9 @@ The default configuration files are installed at:
 /var/snap/edgex-device-rest/current/config/
 └── device-rest
     └── res
-        ├── configuration.toml
+        ├── configuration.yaml
         ├── devices
-        │   └── sample-devices.toml
+        │   └── sample-devices.yaml
         └── profiles
             ├── sample-image-device.yaml
             ├── sample-json-device.yaml
@@ -779,7 +779,7 @@ The default configuration files are installed at:
 /var/snap/edgex-device-rfid-llrp/current/config/
 └── device-rfid-llrp
     └── res
-        ├── configuration.toml
+        ├── configuration.yaml
         ├── devices
         ├── profiles
         │   ├── llrp.device.profile.yaml
@@ -833,9 +833,9 @@ The default configuration files are installed at:
 /var/snap/edgex-device-snmp/current/config/
 └── device-snmp
     └── res
-        ├── configuration.toml
+        ├── configuration.yaml
         ├── devices
-        │   └── device.snmp.trendnet.TPE082WS.toml
+        │   └── device.snmp.trendnet.TPE082WS.yaml
         └── profiles
             ├── device.snmp.patlite.yaml
             ├── device.snmp.switch.dell.N1108P-ON.yaml
@@ -859,10 +859,10 @@ The default configuration files are installed at:
 /var/snap/edgex-device-usb-camera/current/config
 ├── device-usb-camera
 │   └── res
-│       ├── configuration.toml
+│       ├── configuration.yaml
 │       ├── devices
-│       │   ├── general.usb.camera.toml.example
-│       │   └── hp.w200.toml.example
+│       │   ├── general.usb.camera.yaml.example
+│       │   └── hp.w200.yaml.example
 │       ├── profiles
 │       │   ├── general.usb.camera.yaml
 │       │   ├── hp.w200.yaml.example
@@ -883,9 +883,9 @@ The default configuration files are installed at:
 /var/snap/edgex-device-virtual/current/config
 └── device-virtual
     └── res
-        ├── configuration.toml
+        ├── configuration.yaml
         ├── devices
-        │   └── devices.toml
+        │   └── devices.yaml
         └── profiles
             ├── device.virtual.binary.yaml
             ├── device.virtual.bool.yaml
@@ -904,10 +904,10 @@ The default configuration files are installed at:
 /var/snap/edgex-device-onvif-camera/current/config
 └── device-onvif-camera
     └── res
-        ├── configuration.toml
+        ├── configuration.yaml
         ├── devices
-        │   ├── camera.toml.example
-        │   └── control-plane-device.toml
+        │   ├── camera.yaml.example
+        │   └── control-plane-device.yaml
         ├── profiles
         │   ├── camera.yaml
         │   └── control-plane.profile.yaml

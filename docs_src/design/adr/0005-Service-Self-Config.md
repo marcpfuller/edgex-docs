@@ -25,7 +25,7 @@ All EdgeX services support a common set of command-line options, some combinatio
 
 - --configProvider or -cp (the configuration provider location URL - prefixed with `consul.` - for example:  `-cp=consul.http://localhost:8500`)
 - --overwrite or -o (overwrite the configuration in the configuration provider)
-- --file or -f (the configuration filename - configuration.toml is used by default if the configuration filename is not provided)
+- --file or -f (the configuration filename - configuration.yaml is used by default if the configuration filename is not provided)
 - --profile or -p (the name of a sub directory in the configuration directory in which a profile-specific configuration file is found. This has no default. If not specified, the configuration file is read from the configuration directory)
 - --confdir or -c (the directory where the configuration file is found - ./res is used by default if the confdir is not specified, where "." is the convention on Linux/Unix/MacOS which means current directory) 
 - --registry or -r (string indicating use of the registry)
@@ -54,7 +54,7 @@ A configuration provider can be specified with a command line argument (the -cp 
 
 When a configuration provider _isn't_ specified, the service just uses the configuration in its local configuration file.  That is the service uses the configuration in the file associated with the profile, config filename and config file directory command line options or environmental variables.  In this case, the service does not contact the configuration service (Consul) for any configuration information.
   
-NOTE:  As the services now self seed and deployment specific changes can be made via environment overrides, it will no longer be necessary to have a Docker profile configuration file in each of the service directories (example:  https://github.com/edgexfoundry/edgex-go/blob/master/cmd/core-data/res/docker/configuration.toml).  See Consequences below.  It will still be possible for users to use the profile mechanism to specify a Docker configuration, but it will no longer be required and not the recommended approach to providing Docker container specific configuration.
+NOTE:  As the services now self seed and deployment specific changes can be made via environment overrides, it will no longer be necessary to have a Docker profile configuration file in each of the service directories (example:  https://github.com/edgexfoundry/edgex-go/blob/master/cmd/core-data/res/docker/configuration.yaml).  See Consequences below.  It will still be possible for users to use the profile mechanism to specify a Docker configuration, but it will no longer be required and not the recommended approach to providing Docker container specific configuration.
 
 ### Overrides
 Environment variables used to override configuration always take precedence whether configuration is being sourced locally or read from the config provider/Consul.
@@ -64,7 +64,7 @@ Note - this means that a configuration value that is being overridden by an envi
 The name of the environmental variable must match the path names in Consul.
 
 NOTES:
-- Environmental variables overrides remove the need to change the "docker" profile in the res/docker/configuration.toml files - Allowing removal of 50% of the existing configuration.toml files.
+- Environmental variables overrides remove the need to change the "docker" profile in the res/docker/configuration.yaml files - Allowing removal of 50% of the existing configuration.yaml files.
 - The override rules in EdgeX between environmental variables and command line options may be counter intuitive compared to other systems.  There appears to be no standard practice.  Indeed, web searching "Reddit & Starting Fights Env Variables vs Command Line Args" will layout the prevailing differences.
 - Environment variables used for configuration overrides are named by prepending the the configuration element with the configuration section inclusive of sub-path, where sub-path's "."s are replaced with underscores. These configuration environment variable overrides must be specified using camel case.  Here are two examples:
 ~~~~~
@@ -108,8 +108,8 @@ Add it back and use value as if it was EDGEX_CONFIGURATION_PROVIDER and enable u
 - The main Snap will need to be changed to remove config seed. 
 - Config seed code (currently in edgex-go repo) is to be removed.
 - Any service specific environmental overrides currently on config seed need to be moved to the specific service(s).
-- The Docker configuration files and directory (example:  https://github.com/edgexfoundry/edgex-go/blob/master/cmd/core-data/res/docker/configuration.toml) that are used to populate the config seed for Docker containers can be eliminated from all the services.  
-- In cmd/security-secretstore-setup, there is only a docker configuration.toml.  This file will be moved rather than deleted.
+- The Docker configuration files and directory (example:  https://github.com/edgexfoundry/edgex-go/blob/master/cmd/core-data/res/docker/configuration.yaml) that are used to populate the config seed for Docker containers can be eliminated from all the services.  
+- In cmd/security-secretstore-setup, there is only a docker configuration.yaml.  This file will be moved rather than deleted.
 - Documentation would need to reflect removal of config seed and "self seeding" process.
 - Removes any potential issue with past race conditions (as experienced with the Edinburgh release) as each service is now responsible for its own configuration.
   > There are still high availability concerns that need to be considered and not covered in this ADR at this time.

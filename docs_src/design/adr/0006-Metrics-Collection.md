@@ -210,7 +210,7 @@ Additional configuration must be provided in each service to provide metrics / t
 - Define which metrics are available and which are turned `off` and `on`.  All are false by default.  The list of metrics can and likely will be different per service.  The keys in this list are the metric name.  True and false are used for `on` and `off` values.
 - Specify the metrics topic prefix where metrics data will be published to (ex:  providing the prefix /edgex/telemetry/topic name where the service and metric name `[service-name]/[metric-name]` will be appended per metric (allowing subscribers to filter by service or metric name)
 
-These metrics configuration options will be defined in the `Writable` area of `configuration.toml` so as to allow for dynamic changes to the configuration (when using Consul).  Specifically, the `[Writable].[Writable.Telemetry]` area will dictate metrics collection configuration like this:
+These metrics configuration options will be defined in the `Writable` area of `configuration.yaml` so as to allow for dynamic changes to the configuration (when using Consul).  Specifically, the `[Writable].[Writable.Telemetry]` area will dictate metrics collection configuration like this:
 
 ``` yaml
 [[Writable]]

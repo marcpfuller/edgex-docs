@@ -10,7 +10,7 @@ To get started with App Service Configurable, you'll want to start by determinin
 2. [Transform](../BuiltIn/#xml) - to transform the data to XML
 3. [HTTPExport](../BuiltIn/#http-export) - to send the data to an HTTP endpoint that takes our XML data   
 
-Once the functions have been identified, we'll go ahead and build out the configuration in the `configuration.toml` file under the `[Writable.Pipeline]` section.
+Once the functions have been identified, we'll go ahead and build out the configuration in the `configuration.yaml` file under the `[Writable.Pipeline]` section.
 
 !!! example "Example - Writable.Pipeline"
     ```toml
@@ -147,7 +147,7 @@ EdgeX services no longer have docker specific profiles. They now rely on environ
 
 ## Deploying Multiple Instances using profiles
 
-App Service Configurable was designed to be deployed as multiple instances for different purposes. Since the function pipeline is specified in the `configuration.toml` file, we can use this as a way to run each instance with a different function pipeline. App Service Configurable does not have the standard default configuration at `/res/configuration.toml`. This default configuration has been moved to the `sample` profile. This forces you to specify the profile for the configuration you would like to run. The profile is specified using the `-p/--profile=[profilename]` command line option or the `EDGEX_PROFILE=[profilename]` environment variable override. The profile name selected is used in the service key (`app-[profile name]`) to make each instance unique, e.g. `AppService-sample` when specifying `sample` as the profile.
+App Service Configurable was designed to be deployed as multiple instances for different purposes. Since the function pipeline is specified in the `configuration.yaml` file, we can use this as a way to run each instance with a different function pipeline. App Service Configurable does not have the standard default configuration at `/res/configuration.yaml`. This default configuration has been moved to the `sample` profile. This forces you to specify the profile for the configuration you would like to run. The profile is specified using the `-p/--profile=[profilename]` command line option or the `EDGEX_PROFILE=[profilename]` environment variable override. The profile name selected is used in the service key (`app-[profile name]`) to make each instance unique, e.g. `AppService-sample` when specifying `sample` as the profile.
 
 !!! edgey "Edgex 2.0"
     Default service key for App Service Configurable instances has changed in Edgex 2.0 from `AppService-[profile name]` to `app-[profile name]`
@@ -169,7 +169,7 @@ One can optionally add Filter function via environment overrides
 - `WRITABLE_PIPELINE_EXECUTIONORDER: "FilterByDeviceName, HTTPExport"`
 - `WRITABLE_PIPELINE_FUNCTIONS_FILTERBYDEVICENAME_PARAMETERS_DEVICENAMES: "[comma separated list]"`
 
-There are many optional functions and parameters provided in this profile. See the [complete profile](https://github.com/edgexfoundry/app-service-configurable/blob/master/res/rules-engine/configuration.toml) for more details
+There are many optional functions and parameters provided in this profile. See the [complete profile](https://github.com/edgexfoundry/app-service-configurable/blob/master/res/rules-engine/configuration.yaml) for more details
 
 ### http-export
 
@@ -179,7 +179,7 @@ Required:
 
 - `WRITABLE_PIPELINE_FUNCTIONS_HTTPEXPORT_PARAMETERS_URL: [Your URL]`
 
-    There are many more optional functions and parameters provided in this profile. See the [complete profile](https://github.com/edgexfoundry/app-service-configurable/blob/v2.0.0/res/http-export/configuration.toml) for more details.
+    There are many more optional functions and parameters provided in this profile. See the [complete profile](https://github.com/edgexfoundry/app-service-configurable/blob/v2.0.0/res/http-export/configuration.yaml) for more details.
 
 ### metrics-influxdb
 
@@ -237,11 +237,11 @@ Required:
 - `WRITABLE_PIPELINE_FUNCTIONS_MQTTEXPORT_PARAMETERS_BROKERADDRESS: [Your Broker Address]`
 
 
-    There are many optional functions and parameters provided in this profile. See the [complete profile](https://github.com/edgexfoundry/app-service-configurable/blob/v2.0.0/res/mqtt-export/configuration.toml) for more details
+    There are many optional functions and parameters provided in this profile. See the [complete profile](https://github.com/edgexfoundry/app-service-configurable/blob/v2.0.0/res/mqtt-export/configuration.yaml) for more details
 
 ### sample
 
-Sample profile with all available functions declared and a sample pipeline. Provided as a sample that can be copied and modified to create new custom profiles. See the [complete profile](https://github.com/edgexfoundry/app-service-configurable/blob/v2.0.0/res/sample/configuration.toml) for more details
+Sample profile with all available functions declared and a sample pipeline. Provided as a sample that can be copied and modified to create new custom profiles. See the [complete profile](https://github.com/edgexfoundry/app-service-configurable/blob/v2.0.0/res/sample/configuration.yaml) for more details
 
 ### functional-tests
 

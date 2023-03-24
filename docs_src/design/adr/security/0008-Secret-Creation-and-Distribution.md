@@ -111,9 +111,9 @@ User-managed secrets functionality is provided by `app-functions-sdk-go`.
 
 If security is enabled, secrets are retrieved from Vault.
 If security is disabled, secrets are retreived from the configuration provider.
-If the configuration provider is not available, secrets are read from the underlying `.toml`.
+If the configuration provider is not available, secrets are read from the underlying `.yaml`.
 It is taken as granted in this ADR that secrets originating in the configuration provider
-or from `.toml` configuration files are not secret.
+or from `.yaml` configuration files are not secret.
 The fallback mechanism is provided as a convienience to the developer,
 who would otherwise have to litter their code with "if (isSecurityEnabled())" logic leading to implementation inconsistencies.
 
@@ -204,7 +204,7 @@ Specific cases where this is likely to come up are:
   EdgeX is an open-source project.
   Any secret that is present in an EdgeX repository is public to the world,
   and therefore not a secret, by definition.
-  Configuration files, such as .toml files, .json files, .yaml files
+  Configuration files, such as .yaml files, .json files, .yaml files
   (including `docker-compose.yml`) are specific instances of this practice.
 
 - Secrets embedded in binaries
